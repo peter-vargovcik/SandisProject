@@ -84,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             acc.toString();
             Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
