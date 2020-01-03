@@ -4,6 +4,176 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TableLayout
+        android:id="@+id/calendarTableView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_white"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TableRow >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="...2021 Week 50..." />
+
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="2020 Week 51 ..." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_1"
+                android:textSize="20dp"
+                android:text="...2020 Week 50..." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="...2020 Week 53" />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="...2021 Week 50..." />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/totalTableView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_white"
+        app:layout_constraintTop_toBottomOf="@id/calendarTableView" >
+
+        <TableRow >
+            <TextView
+                android:background="@color/color_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_4"
+                android:textSize="13dp"
+                android:text="Centra total sales value:" />
+            <TextView
+                android:background="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_5"
+                android:textSize="13dp"
+                android:text="SuperValu total sales valuse:" />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:background="@color/color_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_2"
+                android:textSize="20dp"
+                android:text="$ 2.300.00" />
+            <TextView
+                android:background="@color/color_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_3"
+                android:textSize="20dp"
+                android:text="$ 35.250.00" />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:background="@color/color_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Performace $:" />
+            <TextView
+                android:background="@color/color_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Performace $:" />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:background="@color/color_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_2"
+                android:text="+ $123.00" />
+            <TextView
+                android:background="@color/color_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_3"
+                android:text="- $1,123.00" />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:background="@color/color_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Performace %:" />
+            <TextView
+                android:background="@color/color_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Performace %:" />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:background="@color/color_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_2"
+                android:text="+ 1,23%" />
+            <TextView
+                android:background="@color/color_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_3"
+                android:text="- 2,56%" />
+        </TableRow>
+
+    </TableLayout>
+
+
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
@@ -15,5 +185,5 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/totalTableView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
