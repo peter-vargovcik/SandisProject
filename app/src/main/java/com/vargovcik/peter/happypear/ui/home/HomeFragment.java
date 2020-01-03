@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -13,6 +14,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.vargovcik.peter.happypear.R;
+import com.vargovcik.peter.happypear.components.CustomWeekPicker;
+import com.vargovcik.peter.happypear.components.CustomWeekPickerListener;
+
+import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
 
@@ -22,7 +27,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+       final View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
@@ -30,6 +35,20 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+
+        CustomWeekPicker weekPicker = root.findViewById(R.id.calendarTableView);
+
+        weekPicker.setOnChangeListener(new CustomWeekPickerListener() {
+            @Override
+            public void onWeekChange(Calendar calendar) {
+                String test = String.format("...%d Week %d...",calendar.get(Calendar.YEAR),calendar.get(Calendar.WEEK_OF_YEAR));
+
+                Toast.makeText(root.getContext(),test,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         return root;
     }
 }

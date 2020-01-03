@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow >
+        <TextView
+            android:id="@+id/custom_week_previous_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="...2021 Week 50..." />
+
+    </TableRow>
+    <TableRow >
+        <TextView
+            android:id="@+id/custom_week_previous_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="2020 Week 51 ..." />
+        <TextView
+            android:id="@+id/custom_week_current_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/color_1"
+            android:textSize="20dp"
+            android:text="...2020 Week 50..." />
+        <TextView
+            android:id="@+id/custom_week_next_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="...2020 Week 53" />
+    </TableRow>
+    <TableRow >
+        <TextView
+            android:id="@+id/custom_week_next_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="...2021 Week 50..." />
+    </TableRow>
+</merge>

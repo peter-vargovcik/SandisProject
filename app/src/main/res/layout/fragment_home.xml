@@ -1,59 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom = "http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
+    <com.vargovcik.peter.happypear.components.CustomWeekPicker
         android:id="@+id/calendarTableView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/content_white"
-        app:layout_constraintTop_toTopOf="parent" >
+        custom:text_color="#fff"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <TableRow >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="3"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="...2021 Week 50..." />
 
-        </TableRow>
-        <TableRow >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="2020 Week 51 ..." />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/color_1"
-                android:textSize="20dp"
-                android:text="...2020 Week 50..." />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:text="...2020 Week 53" />
-        </TableRow>
-        <TableRow >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="3"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="...2021 Week 50..." />
-        </TableRow>
-
-    </TableLayout>
 
     <TableLayout
         android:id="@+id/totalTableView"
