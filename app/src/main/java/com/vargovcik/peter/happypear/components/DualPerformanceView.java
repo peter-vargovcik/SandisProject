@@ -129,8 +129,8 @@ public class DualPerformanceView extends View {
         RectF oval = new RectF(0,0,size,size);
         float innerCircleRadius = (float) ((size/2) * .8);
 
-        canvas.drawArc(oval, 0F, 180F, true, leftBackgroundPaint);
-        canvas.drawArc(oval, 180F, 180F, true, rightBackgroundPaint);
+        canvas.drawArc(oval, 0F, 180F, true, rightBackgroundPaint);
+        canvas.drawArc(oval, 180F, 180F, true, leftBackgroundPaint);
         canvas.drawCircle(size/2,size/2,innerCircleRadius, centreCirclePaint);
 
         PathMeasure pathMeasure = new PathMeasure(circle,false);
@@ -182,6 +182,9 @@ public class DualPerformanceView extends View {
                     break;
                 case R.styleable.DualPerformanceView_right_side_background_color:
                     rightSideBackgroundColor = attributes.getColor(attr,-1);
+                    break;
+                case R.styleable.DualPerformanceView_name_text_color:
+                    nameColor = attributes.getColor(attr,-1);
                     break;
             }
         }

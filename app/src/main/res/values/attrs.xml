@@ -9,6 +9,7 @@
     
     <declare-styleable name="DualPerformanceView">
         <attr name="size" format="dimension"/>
+        <attr name="name_text_color" format="color"/>
         <attr name="left_side_text" format="string"/>
         <attr name="left_side_text_color" format="color"/>
         <attr name="left_side_background_color" format="color"/>
