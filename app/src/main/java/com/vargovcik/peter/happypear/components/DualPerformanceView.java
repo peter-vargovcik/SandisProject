@@ -129,8 +129,8 @@ public class DualPerformanceView extends View {
         RectF oval = new RectF(0,0,size,size);
         float innerCircleRadius = (float) ((size/2) * .8);
 
-        canvas.drawArc(oval, 0F, 180F, true, rightBackgroundPaint);
-        canvas.drawArc(oval, 180F, 180F, true, leftBackgroundPaint);
+        canvas.drawArc(oval, 0F, 180F, true, leftBackgroundPaint);
+        canvas.drawArc(oval, 180F, 180F, true, rightBackgroundPaint);
         canvas.drawCircle(size/2,size/2,innerCircleRadius, centreCirclePaint);
 
         PathMeasure pathMeasure = new PathMeasure(circle,false);
@@ -145,8 +145,8 @@ public class DualPerformanceView extends View {
 
         float pathQuadrantLength = pathLength/4;
 
-        float offsetLeft = pathQuadrantLength- (leftTextWidth/2);
-        float offsetRigth = pathQuadrantLength*3- (rightTextWidth/2);
+        float offsetLeft = pathQuadrantLength*3- (leftTextWidth/2);
+        float offsetRigth = pathQuadrantLength- (rightTextWidth/2);
         float offsetName = pathLineMeasureLength/2- (nameTextWidth/2);
 
         canvas.drawTextOnPath(leftSideText, circle, offsetLeft, 30, leftTextPaint);
