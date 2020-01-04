@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.vargovcik.peter.happypear.R;
 import com.vargovcik.peter.happypear.components.CustomWeekPicker;
 import com.vargovcik.peter.happypear.components.CustomWeekPickerListener;
+import com.vargovcik.peter.happypear.components.DualPerformanceView;
 
 import java.util.Calendar;
 
@@ -48,6 +49,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        DualPerformanceView performanceView = root.findViewById(R.id.performance_view_shops);
+        performanceView.setNameAndSides("Shops","Centra","SuperValue");
 
         return root;
     }

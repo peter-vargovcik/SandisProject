@@ -134,20 +134,28 @@
 
     </TableLayout>
 
-
-
-    <com.vargovcik.peter.happypear.components.DualPerformanceView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalTableView" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/totalTableView"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <com.vargovcik.peter.happypear.components.DualPerformanceView
+            android:id="@+id/performance_view_shops"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+
+
+
 
 <!--    <TextView-->
 <!--        android:id="@+id/text_home"-->
