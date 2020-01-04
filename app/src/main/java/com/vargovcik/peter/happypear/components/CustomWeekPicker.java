@@ -24,14 +24,7 @@ public class CustomWeekPicker extends TableLayout {
 
     public CustomWeekPicker(final Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
-//        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Options, 0, 0);
-//
-//        String titleText = a.getString(R.styleable.Options_titleText);
-//        int valueColor = a.getColor(R.styleable.Options_valueColor,
-//                android.R.color.holo_blue_light);
-//        a.recycle();
-
+        setCustomAttributes(context.obtainStyledAttributes(attrs, R.styleable.CustomWeekPicker ));
 
         calendar = Calendar.getInstance();
 
@@ -78,6 +71,49 @@ public class CustomWeekPicker extends TableLayout {
             }
         });
     }
+
+    private void setCustomAttributes(TypedArray attributes) {
+        final int indexCount = attributes.getIndexCount();
+        for (int i = 0; i < indexCount; ++i) {
+            int attr = attributes.getIndex(i);
+            switch (attr) {
+                case R.styleable.CustomWeekPicker_text_color:
+                    setTextColor(attributes.getColor(attr,-1));
+                    break;
+                case R.styleable.CustomWeekPicker_text_size:
+                    setTextSize(attributes.getDimension(attr,-1));
+                    break;
+                case R.styleable.CustomWeekPicker_selected_text_color:
+                    setSelectedTextColor(attributes.getColor(attr,-1));
+                    break;
+                case R.styleable.CustomWeekPicker_selected_text_size:
+                    setSelectedTextSize(attributes.getDimension(attr,-1));
+                    break;
+            }
+        }
+        attributes.recycle();
+    }
+
+    private void setSelectedTextSize(float dimension) {
+        Log.d(TAG,"setSelectedTextSize : " + dimension);
+        //TODO implement me
+    }
+
+    private void setSelectedTextColor(int color) {
+        Log.d(TAG,"setSelectedTextColor : " + color);
+        //TODO implement me
+    }
+
+    private void setTextSize(float dimension) {
+        Log.d(TAG,"setTextSize : " + dimension);
+        //TODO implement me
+    }
+
+    private void setTextColor(int color) {
+        Log.d(TAG,"setTextColor : " + color);
+        //TODO implement me
+    }
+
 
     private void publishDateChange() {
         if(listener != null){

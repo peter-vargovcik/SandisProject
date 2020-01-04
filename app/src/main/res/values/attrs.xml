@@ -6,4 +6,13 @@
         <attr name="selected_text_color" format="color"/>
         <attr name="selected_text_size" format="dimension"/>
     </declare-styleable>
+    
+    <declare-styleable name="DualPerformanceView">
+        <attr name="left_side_text" format="string"/>
+        <attr name="left_side_text_color" format="color"/>
+        <attr name="left_side_background_color" format="color"/>
+        <attr name="right_side_text" format="string"/>
+        <attr name="right_side_text_color" format="color"/>
+        <attr name="right_side_background_color" format="color"/>
+    </declare-styleable>
 </resources>
