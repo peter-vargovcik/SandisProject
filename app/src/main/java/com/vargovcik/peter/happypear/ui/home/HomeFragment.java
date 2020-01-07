@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +15,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.vargovcik.peter.happypear.R;
+import com.vargovcik.peter.happypear.arrayadapters.ShopViewAdapter;
 import com.vargovcik.peter.happypear.components.CustomWeekPicker;
 import com.vargovcik.peter.happypear.components.CustomWeekPickerListener;
 import com.vargovcik.peter.happypear.components.DualPerformanceView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -50,7 +54,17 @@ public class HomeFragment extends Fragment {
         });
 
         DualPerformanceView performanceView = root.findViewById(R.id.performance_view_shops);
-        performanceView.setNameAndSides("Shops","Centra","SuperValue");
+        performanceView.setNameAndSides("ShopDetail","Centra","SuperValue");
+
+
+        ArrayList<String> leftShopItems = new ArrayList<>();
+
+        leftShopItems.add("5 Shops:+ 223.00");
+        leftShopItems.add("3 Shops:- 100.00");
+        leftShopItems.add("Total:+ 123.00");
+
+        ListView listView= root.findViewById(R.id.list_shops_left);
+        listView.setAdapter(new ShopViewAdapter(leftShopItems,root.getContext()));
 
         return root;
     }
