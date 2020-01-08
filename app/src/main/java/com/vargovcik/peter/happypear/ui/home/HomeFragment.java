@@ -22,6 +22,7 @@ import com.vargovcik.peter.happypear.arrayadapters.ShopViewAdapter;
 import com.vargovcik.peter.happypear.components.CustomWeekPicker;
 import com.vargovcik.peter.happypear.components.CustomWeekPickerListener;
 import com.vargovcik.peter.happypear.components.DualPerformanceView;
+import com.vargovcik.peter.happypear.dto.Shop;
 import com.vargovcik.peter.happypear.dto.ShopDetail;
 
 import java.util.ArrayList;
@@ -71,7 +72,38 @@ public class HomeFragment extends Fragment {
         rightSide.setShopsInPlus(22);
         rightSide.setShopsInPlusEarnings(3482);
 
+        ArrayList<Shop> shopsLeftSide = new ArrayList<Shop>();
+        shopsLeftSide.add(new Shop("1625 - KILLINEY - RUSHE",1054,156));
+        shopsLeftSide.add(new Shop("393 - ARDEE - LANNEY",453,150));
+        shopsLeftSide.add(new Shop("1425 - PORTLAOISE SV",709,128));
+        shopsLeftSide.add(new Shop("1905 - ATHY - PETTITT",509,108));
+        shopsLeftSide.add(new Shop("1625 - KILLINEY - RUSHE",1054,156));
+        shopsLeftSide.add(new Shop("393 - ARDEE - LANNEY",453,150));
+        shopsLeftSide.add(new Shop("1425 - PORTLAOISE SV",709,128));
+        shopsLeftSide.add(new Shop("1905 - ATHY - PETTITT",509,108));
+        shopsLeftSide.add(new Shop("1625 - KILLINEY - RUSHE",1054,156));
+        shopsLeftSide.add(new Shop("393 - ARDEE - LANNEY",453,150));
+        shopsLeftSide.add(new Shop("1425 - PORTLAOISE SV",709,128));
+        shopsLeftSide.add(new Shop("1905 - ATHY - PETTITT",509,108));
+
+        ArrayList<Shop> shopsRightSide = new ArrayList<Shop>();
+
+        shopsRightSide.add(new Shop("1625 - KILLINEY - RUSHE",1054,156));
+        shopsRightSide.add(new Shop("393 - ARDEE - LANNEY",453,150));
+        shopsRightSide.add(new Shop("1425 - PORTLAOISE SV",709,128));
+        shopsRightSide.add(new Shop("1905 - ATHY - PETTITT",509,108));
+        shopsRightSide.add(new Shop("1625 - KILLINEY - RUSHE",1054,156));
+        shopsRightSide.add(new Shop("393 - ARDEE - LANNEY",453,150));
+        shopsRightSide.add(new Shop("1425 - PORTLAOISE SV",709,128));
+        shopsRightSide.add(new Shop("1905 - ATHY - PETTITT",509,108));
+        shopsRightSide.add(new Shop("1625 - KILLINEY - RUSHE",1054,156));
+        shopsRightSide.add(new Shop("393 - ARDEE - LANNEY",453,150));
+        shopsRightSide.add(new Shop("1425 - PORTLAOISE SV",709,128));
+        shopsRightSide.add(new Shop("1905 - ATHY - PETTITT",509,108));
+
         // Shop Performance section
+        TextView lefShopsCount = root.findViewById(R.id.performance_shops_count_left);
+        TextView rightShopsCount = root.findViewById(R.id.performance_shops_count_right);
 
         TextView leftMinusShops = root.findViewById(R.id.performance_shops_minus_left);
         TextView leftPlusShops = root.findViewById(R.id.performance_shops_plus_left);
@@ -80,9 +112,14 @@ public class HomeFragment extends Fragment {
         TextView rightPlusShops = root.findViewById(R.id.performance_shops_plus_right);
         TextView rightTotalShops = root.findViewById(R.id.performance_shops_total_right);
 
+        lefShopsCount.setText("Shops : "+(leftSide.getShopsInMinus()+leftSide.getShopsInPlus()));
+
         leftMinusShops.setText(buildSnannableString(leftSide.getShopsInMinus(),leftSide.getShopsInMinusLosses() * -1), TextView.BufferType.SPANNABLE);
         leftPlusShops.setText(buildSnannableString(leftSide.getShopsInPlus(),leftSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
         leftTotalShops.setText(buildSnannableString("Total: ",leftSide.getShopsInMinusLosses() * -1,leftSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
+
+
+        rightShopsCount.setText("Shops : "+(rightSide.getShopsInMinus()+rightSide.getShopsInPlus()));
 
         rightMinusShops.setText(buildSnannableString(rightSide.getShopsInMinus(),rightSide.getShopsInMinusLosses()* -1), TextView.BufferType.SPANNABLE);
         rightPlusShops.setText(buildSnannableString(rightSide.getShopsInPlus(),rightSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
@@ -92,8 +129,12 @@ public class HomeFragment extends Fragment {
         performanceView.setNameAndSides("ShopDetail",leftSide.getShopName(),rightSide.getShopName());
 
 
-//        ListView listView= root.findViewById(R.id.list_shops_left);
-//        listView.setAdapter(new ShopViewAdapter(leftShopItems,root.getContext()));
+        ListView listViewLeft= root.findViewById(R.id.performance_view_shops_list_left);
+        listViewLeft.setAdapter(new ShopViewAdapter(shopsLeftSide,root.getContext()));
+
+
+        ListView listViewRight= root.findViewById(R.id.performance_view_shops_list_right);
+        listViewRight.setAdapter(new ShopViewAdapter(shopsRightSide,root.getContext()));
 
 
 

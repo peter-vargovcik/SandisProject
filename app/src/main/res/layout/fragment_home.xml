@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/content_white"
-        app:layout_constraintTop_toTopOf="parent"
         custom:text_color="#ffffff"
         custom:text_size="20dp" />
 
@@ -19,8 +18,7 @@
         android:id="@+id/totalTableView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/content_white"
-        app:layout_constraintTop_toBottomOf="@id/calendarTableView">
+        android:background="@color/content_white">
 
         <TableRow>
 
@@ -151,128 +149,157 @@
     </TableLayout>
 
     <ScrollView
+        android:id="@+id/shop_performance_sumary_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalTableView">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="4">
-
-            <TableLayout
-                android:id="@+id/shopPerforamceTableView"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/content_white"
-                app:layout_constraintTop_toBottomOf="@id/calendarTableView">
+                android:columnCount="3"
+                android:rowCount="4">
 
-                <TableRow>
+                <TableLayout
+                    android:id="@+id/shopPerforamceTableView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/content_white"
+                    app:layout_constraintTop_toBottomOf="@id/calendarTableView">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:paddingBottom="20dp"
-                        android:text="Shops: 8"
-                        android:textSize="18dp" />
+                    <TableRow>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:paddingBottom="20dp"
-                        android:text="Shops: 42"
-                        android:textSize="18dp" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/performance_shops_count_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingBottom="20dp"
+                            android:text="Shops: 8"
+                            android:textSize="18dp" />
 
-                <TableRow>
+                        <TextView
+                            android:id="@+id/performance_shops_count_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingBottom="20dp"
+                            android:text="Shops: 42"
+                            android:textSize="18dp" />
+                    </TableRow>
 
-                    <TextView
-                        android:id="@+id/performance_shops_plus_left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:paddingLeft="10dp"
-                        android:paddingBottom="20dp"
-                        android:text="Shops: 8" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/performance_shops_plus_right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:paddingRight="10dp"
-                        android:text="Shops: 42" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/performance_shops_plus_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:paddingLeft="10dp"
+                            android:paddingBottom="20dp"
+                            android:text="Shops: 8" />
 
-                <TableRow>
+                        <TextView
+                            android:id="@+id/performance_shops_plus_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:paddingRight="10dp"
+                            android:text="Shops: 42" />
+                    </TableRow>
 
-                    <TextView
-                        android:id="@+id/performance_shops_minus_left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:paddingLeft="10dp"
-                        android:paddingBottom="20dp"
-                        android:text="Shops: 8" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/performance_shops_minus_right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:paddingRight="10dp"
-                        android:text="Shops: 42" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/performance_shops_minus_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:paddingLeft="10dp"
+                            android:paddingBottom="20dp"
+                            android:text="Shops: 8" />
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/performance_shops_total_left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:paddingLeft="10dp"
-                        android:paddingBottom="20dp"
-                        android:text="Shops: 8" />
+                        <TextView
+                            android:id="@+id/performance_shops_minus_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:paddingRight="10dp"
+                            android:text="Shops: 42" />
+                    </TableRow>
 
-                    <TextView
-                        android:id="@+id/performance_shops_total_right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:paddingRight="10dp"
-                        android:text="Shops: 42" />
-                </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/performance_shops_total_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:paddingLeft="10dp"
+                            android:paddingBottom="20dp"
+                            android:text="Shops: 8" />
 
-            </TableLayout>
+                        <TextView
+                            android:id="@+id/performance_shops_total_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:paddingRight="10dp"
+                            android:text="Shops: 42" />
+                    </TableRow>
 
-
-            <com.vargovcik.peter.happypear.components.DualPerformanceView
-                android:id="@+id/performance_view_shops"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                custom:left_side_background_color="@color/left_side"
-                custom:left_side_text_color="@color/content_white"
-                custom:name_text_color="@color/text_color"
-                custom:right_side_background_color="@color/right_side"
-                custom:right_side_text_color="@color/content_white"
-                custom:size="110dp" />
+                </TableLayout>
 
 
-        </FrameLayout>
+                <com.vargovcik.peter.happypear.components.DualPerformanceView
+                    android:id="@+id/performance_view_shops"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    custom:left_side_background_color="@color/left_side"
+                    custom:left_side_text_color="@color/content_white"
+                    custom:name_text_color="@color/text_color"
+                    custom:right_side_background_color="@color/right_side"
+                    custom:right_side_text_color="@color/content_white"
+                    custom:size="120dp" />
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:orientation="horizontal">
+
+                <ListView
+                    android:id="@+id/performance_view_shops_list_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+
+                <ListView
+                    android:id="@+id/performance_view_shops_list_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+            </LinearLayout>
+
+        </LinearLayout>
+
 
 <!--        <LinearLayout-->
 <!--            android:layout_width="wrap_content"-->
@@ -303,4 +330,4 @@
     <!--        app:layout_constraintEnd_toEndOf="parent"-->
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toBottomOf="@id/totalTableView" />-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
