@@ -1,6 +1,9 @@
 package com.vargovcik.peter.happypear.ui.home;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,7 @@ import com.vargovcik.peter.happypear.arrayadapters.ShopViewAdapter;
 import com.vargovcik.peter.happypear.components.CustomWeekPicker;
 import com.vargovcik.peter.happypear.components.CustomWeekPickerListener;
 import com.vargovcik.peter.happypear.components.DualPerformanceView;
+import com.vargovcik.peter.happypear.dto.ShopDetail;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,19 +57,72 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        ShopDetail leftSide =  new ShopDetail();
+        leftSide.setShopName("Centra");
+        leftSide.setShopsInMinus(3);
+        leftSide.setShopsInMinusLosses(100);
+        leftSide.setShopsInPlus(5);
+        leftSide.setShopsInPlusEarnings(223);
+
+        ShopDetail rightSide =  new ShopDetail();
+        rightSide.setShopName("SuperValue");
+        rightSide.setShopsInMinus(16);
+        rightSide.setShopsInMinusLosses(1904);
+        rightSide.setShopsInPlus(22);
+        rightSide.setShopsInPlusEarnings(3482);
+
+        // Shop Performance section
+
+        TextView leftMinusShops = root.findViewById(R.id.performance_shops_minus_left);
+        TextView leftPlusShops = root.findViewById(R.id.performance_shops_plus_left);
+        TextView leftTotalShops = root.findViewById(R.id.performance_shops_total_left);
+        TextView rightMinusShops = root.findViewById(R.id.performance_shops_minus_right);
+        TextView rightPlusShops = root.findViewById(R.id.performance_shops_plus_right);
+        TextView rightTotalShops = root.findViewById(R.id.performance_shops_total_right);
+
+        leftMinusShops.setText(buildSnannableString(leftSide.getShopsInMinus(),leftSide.getShopsInMinusLosses() * -1), TextView.BufferType.SPANNABLE);
+        leftPlusShops.setText(buildSnannableString(leftSide.getShopsInPlus(),leftSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
+        leftTotalShops.setText(buildSnannableString("Total: ",leftSide.getShopsInMinusLosses() * -1,leftSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
+
+        rightMinusShops.setText(buildSnannableString(rightSide.getShopsInMinus(),rightSide.getShopsInMinusLosses()* -1), TextView.BufferType.SPANNABLE);
+        rightPlusShops.setText(buildSnannableString(rightSide.getShopsInPlus(),rightSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
+        rightTotalShops.setText(buildSnannableString("Total: ",rightSide.getShopsInMinusLosses() * -1,rightSide.getShopsInPlusEarnings()), TextView.BufferType.SPANNABLE);
+
         DualPerformanceView performanceView = root.findViewById(R.id.performance_view_shops);
-        performanceView.setNameAndSides("ShopDetail","Centra","SuperValue");
+        performanceView.setNameAndSides("ShopDetail",leftSide.getShopName(),rightSide.getShopName());
 
 
-        ArrayList<String> leftShopItems = new ArrayList<>();
+//        ListView listView= root.findViewById(R.id.list_shops_left);
+//        listView.setAdapter(new ShopViewAdapter(leftShopItems,root.getContext()));
 
-        leftShopItems.add("5 Shops:+ 223.00");
-        leftShopItems.add("3 Shops:- 100.00");
-        leftShopItems.add("Total:+ 123.00");
 
-        ListView listView= root.findViewById(R.id.list_shops_left);
-        listView.setAdapter(new ShopViewAdapter(leftShopItems,root.getContext()));
 
         return root;
+    }
+
+    private SpannableString buildSnannableString(int shopsInMinus, double shopsInMinusLosses) {
+        //https://www.chrisumbel.com/article/android_textview_rich_text_spannablestring
+
+        boolean isInMinus = shopsInMinusLosses < 0;
+        String string = String.format("%s Shops: $%s",shopsInMinus,shopsInMinusLosses);
+        int startIndex = string.indexOf(":");
+        SpannableString text = new SpannableString(string);
+
+        text.setSpan(new ForegroundColorSpan(isInMinus ? Color.RED : Color.GREEN), startIndex + 1, string.length(), 0);
+
+        return text;
+    }
+
+    private SpannableString buildSnannableString(String s, double shopsInMinusLosses, double shopsInPlusEarnings) {
+        double sum = shopsInPlusEarnings + shopsInMinusLosses;
+        boolean isInMinus = sum < 0;
+        String string = "Total : $" + sum;
+
+        int startIndex = string.indexOf(":");
+        SpannableString text = new SpannableString(string);
+
+        text.setSpan(new ForegroundColorSpan(isInMinus ? Color.RED : Color.GREEN), startIndex + 1, string.length(), 0);
+
+        return text;
     }
 }
