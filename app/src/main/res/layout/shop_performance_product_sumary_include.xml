@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:id="@+id/shop_perforamce_product_table_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_white">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/performance_shops_products_sold_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_4"
+                android:gravity="center"
+                android:paddingBottom="20dp"
+                android:text="Shops: 8"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/performance_shops_products_sold_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_5"
+                android:gravity="center"
+                android:paddingBottom="20dp"
+                android:text="Shops: 42"
+                android:textSize="18dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_4"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="Performance in units:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_5"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Performance in units:" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/performance_shops_products_in_units_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_4"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="Shops: 8" />
+
+            <TextView
+                android:id="@+id/performance_shops_products_in_units_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_5"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Shops: 42" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_4"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="Performance in %:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_5"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Performance in %:" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/performance_shops_products_in_percent_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_4"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="Shops: 8" />
+
+            <TextView
+                android:id="@+id/performance_shops_products_in_percent_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/color_5"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Shops: 42" />
+        </TableRow>
+
+    </TableLayout>
+
+
+    <com.vargovcik.peter.happypear.components.DualPerformanceView
+        android:id="@+id/performance_view_products"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        custom:left_side_background_color="@color/left_side"
+        custom:left_side_text_color="@color/content_white"
+        custom:name_text_color="@color/text_color"
+        custom:right_side_background_color="@color/right_side"
+        custom:right_side_text_color="@color/content_white"
+        custom:size="120dp" />
+
+</FrameLayout>

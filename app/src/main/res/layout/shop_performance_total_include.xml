@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/totalTableView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/content_white">
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_2"
+            android:gravity="center"
+            android:text="Centra total sales value:"
+            android:textColor="@color/color_4"
+            android:textSize="13dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="SuperValu total sales valuse:"
+            android:textColor="@color/color_5"
+            android:textSize="13dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_4"
+            android:gravity="center"
+            android:text="$ 2.300.00"
+            android:textColor="@color/color_2"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_5"
+            android:gravity="center"
+            android:text="$ 35.250.00"
+            android:textColor="@color/color_3"
+            android:textSize="20dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_4"
+            android:gravity="center"
+            android:text="Performace $:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_5"
+            android:gravity="center"
+            android:text="Performace $:" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_4"
+            android:gravity="center"
+            android:text="+ $123.00"
+            android:textColor="@color/color_2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_5"
+            android:gravity="center"
+            android:text="- $1,123.00"
+            android:textColor="@color/color_3" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_4"
+            android:gravity="center"
+            android:text="Performace %:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_5"
+            android:gravity="center"
+            android:text="Performace %:" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_4"
+            android:gravity="center"
+            android:text="+ 1,23%"
+            android:textColor="@color/color_2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_5"
+            android:gravity="center"
+            android:text="- 2,56%"
+            android:textColor="@color/color_3" />
+    </TableRow>
+
+</TableLayout>

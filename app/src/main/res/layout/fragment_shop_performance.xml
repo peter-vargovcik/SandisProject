@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.vargovcik.peter.happypear.components.CustomWeekPicker
+        android:id="@+id/calendarTableView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_white"
+        custom:text_color="#ffffff"
+        custom:text_size="20dp" />
+
+
+    <ScrollView
+        android:id="@+id/shop_performance_sumary_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/shop_performance_total_include" />
+
+            <include layout="@layout/shop_performance_shop_sumary_include" />
+
+            <include layout="@layout/shop_performance_top_shops_include" />
+
+            <include layout="@layout/shop_performance_product_sumary_include" />
+
+            <include layout="@layout/shop_performance_top_products_include" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_home"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/totalTableView" />-->
+</LinearLayout>

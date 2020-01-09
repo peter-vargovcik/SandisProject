@@ -1,4 +1,4 @@
-package com.vargovcik.peter.happypear.ui.home;
+package com.vargovcik.peter.happypear.ui.performance;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,18 +7,15 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.vargovcik.peter.happypear.R;
-import com.vargovcik.peter.happypear.arrayadapters.ShopViewAdapter;
 import com.vargovcik.peter.happypear.components.CustomWeekPicker;
 import com.vargovcik.peter.happypear.components.CustomWeekPickerListener;
 import com.vargovcik.peter.happypear.components.DualPerformanceView;
@@ -27,17 +24,17 @@ import com.vargovcik.peter.happypear.dto.ShopDetail;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class ShopPerformanceFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private ShopPerformanceModel homeViewModel;
+    private View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-       final View root = inflater.inflate(R.layout.fragment_home, container, false);
+                ViewModelProviders.of(this).get(ShopPerformanceModel.class);
+       root = inflater.inflate(R.layout.fragment_shop_performance, container, false);
 //        final TextView textView = root.findViewById(R.id.text_home);
 //        homeViewModel.getText().observe(this, new Observer<String>() {
 //            @Override
@@ -128,17 +125,31 @@ public class HomeFragment extends Fragment {
         DualPerformanceView performanceView = root.findViewById(R.id.performance_view_shops);
         performanceView.setNameAndSides("ShopDetail",leftSide.getShopName(),rightSide.getShopName());
 
+        displayPerformingShops(inflater,R.id.performance_view_shops_list_left,shopsLeftSide);
+        displayPerformingShops(inflater,R.id.performance_view_shops_list_right,shopsRightSide);
 
-        ListView listViewLeft= root.findViewById(R.id.performance_view_shops_list_left);
-        listViewLeft.setAdapter(new ShopViewAdapter(shopsLeftSide,root.getContext()));
-
-
-        ListView listViewRight= root.findViewById(R.id.performance_view_shops_list_right);
-        listViewRight.setAdapter(new ShopViewAdapter(shopsRightSide,root.getContext()));
 
 
 
         return root;
+    }
+
+    private void displayPerformingShops(LayoutInflater inflater,int layoutId, ArrayList<Shop> shops) {
+        LinearLayout linearLayoutParent =  root.findViewById(layoutId);
+
+        for(Shop shop :shops){
+            LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.shop_view_row_item,null);
+
+            TextView itemName = linearLayout.findViewById(R.id.shop_view_row_item_name);
+            TextView itemVal1 = linearLayout.findViewById(R.id.shop_view_row_item_val1);
+            TextView itemVal2 = linearLayout.findViewById(R.id.shop_view_row_item_val2);
+
+            itemName.setText(shop.getName());
+            itemVal1.setText(""+ shop.getVal1());
+            itemVal2.setText(""+ shop.getVal2());
+
+            linearLayoutParent.addView(linearLayout);
+        }
     }
 
     private SpannableString buildSnannableString(int shopsInMinus, double shopsInMinusLosses) {

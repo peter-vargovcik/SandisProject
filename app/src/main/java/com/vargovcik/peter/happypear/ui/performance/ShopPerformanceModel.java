@@ -1,14 +1,14 @@
-package com.vargovcik.peter.happypear.ui.home;
+package com.vargovcik.peter.happypear.ui.performance;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class ShopPerformanceModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public ShopPerformanceModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }
