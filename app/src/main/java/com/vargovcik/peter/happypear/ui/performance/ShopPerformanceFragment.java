@@ -1,5 +1,6 @@
 package com.vargovcik.peter.happypear.ui.performance;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -24,6 +25,8 @@ import com.vargovcik.peter.happypear.dto.ShopDetail;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Random;
 
 public class ShopPerformanceFragment extends Fragment {
 
@@ -130,14 +133,92 @@ public class ShopPerformanceFragment extends Fragment {
 
 
 
+        displayPerformingProducts(inflater,R.id.performance_view_products_list_left);
+        displayPerformingProducts(inflater,R.id.performance_view_products_list_right);
+
+
+
 
         return root;
+    }
+
+    private void displayPerformingProducts(LayoutInflater inflater,int layoutId) {
+        LinearLayout linearLayoutParent =  root.findViewById(layoutId);
+        Random random = new Random();
+        List<Integer> values = new ArrayList<>();
+
+        for(int i = 0; i< random.nextInt(20);i++){
+            values.add(random.nextInt(1000));
+        }
+
+        int val1Low = Integer.MAX_VALUE;
+        int val1High = Integer.MIN_VALUE;
+
+        for(Integer integer : values){
+            if(integer< val1Low){
+                val1Low =integer;
+            }
+
+            if(integer> val1High){
+                val1High = integer;
+            }
+        }
+
+        for(int i = 0; i< values.size();i++){
+            int value = values.get(i);
+            int val1 = (value - val1Low) * (255 - 170) / (val1High - val1Low) + 170;
+            int color1 = Color.parseColor("#00"+Integer.toHexString(val1)+"00");
+
+            LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.product_view_row_item,null);
+
+            TextView itemName = linearLayout.findViewById(R.id.product_view_row_item_name);
+            TextView itemVal1 = linearLayout.findViewById(R.id.product_view_row_item_val1);
+
+            itemName.setText("Shop "+ value);
+            itemVal1.setText(""+ value);
+            itemVal1.setBackgroundColor(color1);
+
+            linearLayoutParent.addView(linearLayout);
+
+        }
+
     }
 
     private void displayPerformingShops(LayoutInflater inflater,int layoutId, ArrayList<Shop> shops) {
         LinearLayout linearLayoutParent =  root.findViewById(layoutId);
 
+        double val1Low = Double.MAX_VALUE;
+        double val1High = Double.MIN_VALUE;
+        double val2Low = Double.MAX_VALUE;
+        double val2High = Double.MIN_VALUE;
+
         for(Shop shop :shops){
+            if(shop.getVal1()< val1Low){
+                val1Low = shop.getVal1();
+            }
+
+            if(shop.getVal1()> val1High){
+                val1High = shop.getVal1();
+            }
+
+            if(shop.getVal2()< val2Low){
+                val2Low = shop.getVal2();
+            }
+
+            if(shop.getVal2()> val2High){
+                val2High = shop.getVal2();
+            }
+        }
+
+
+        for(Shop shop :shops){
+
+            double val1 = (shop.getVal1() - val1Low) * (255 - 170) / (val1High - val1Low) + 170;
+            double val2 = (shop.getVal2() - val2Low) * (255 - 170) / (val2High - val2Low) + 170;
+
+            int color1 = Color.parseColor("#00"+Integer.toHexString((int)val1)+"00");
+            int color2 = Color.parseColor("#00"+Integer.toHexString((int)val2)+"00");
+
             LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.shop_view_row_item,null);
 
             TextView itemName = linearLayout.findViewById(R.id.shop_view_row_item_name);
@@ -146,7 +227,9 @@ public class ShopPerformanceFragment extends Fragment {
 
             itemName.setText(shop.getName());
             itemVal1.setText(""+ shop.getVal1());
+            itemVal1.setBackgroundColor(color1);
             itemVal2.setText(""+ shop.getVal2());
+            itemVal2.setBackgroundColor(color2);
 
             linearLayoutParent.addView(linearLayout);
         }
